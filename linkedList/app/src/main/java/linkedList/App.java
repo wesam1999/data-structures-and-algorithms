@@ -7,9 +7,16 @@ public class App {
 
     public static void main(String[] args) {
         linkedList<String> newlist = new linkedList();
-        newlist.addFirst("Roaa");
-        newlist.addFirst("Ahmad");
-        newlist.addLast("Manar");
-        newlist.printAllItems();
+        newlist.insert("any");
+        newlist.insert("value");
+        newlist.insert("we");
+        newlist.insert("have");
+        newlist.insert("it");
+        newlist.insert("in ");
+        newlist.insert("this");
+        newlist.insert("link list");
+
+        System.out.println(newlist.includes("sdssad"));
+        System.out.println(newlist.toString1());
     }
 }
