@@ -10,4 +10,17 @@ class AppTest {
     @Test void appHasAGreeting() {
 
     }
+    @Test void toString1Test(){
+        linkedList<String> newlist = new linkedList();
+     String result="{link list} ->{this} ->{in } ->{it} ->{have} ->{we} ->{value} ->{any} ->null";
+       
+
+
+    }
+    @Test void includes(){
+        linkedList<String> newlist = new linkedList();
+        boolean a=newlist.includes("any");
+        assertFalse(a);
+
+    }
 }

@@ -16,7 +16,7 @@ public class App {
         newlist.insert("this");
         newlist.insert("link list");
 
-        System.out.println(newlist.includes("sdssad"));
+        System.out.println(newlist.includes("any"));
         System.out.println(newlist.toString1());
     }
 }
