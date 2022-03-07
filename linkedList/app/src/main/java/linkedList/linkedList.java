@@ -44,26 +44,54 @@ return false;
 public String toString1(){
     Node pointer = this.head;
     StringBuilder result = new StringBuilder();
-try{
-    while (pointer !=null){
-
+try{while (pointer !=null){
      result.append('{').append(pointer.value).append("} ->");
      pointer=pointer.next;
-
-
-
-
     }result.append("null");
 }catch (Exception exception){
     System.out.println(exception.toString());
 }
-
-
 return  result.toString();
 }
+   public void append(T v){
+       Node pointer = this.head;
+       while(pointer != null){
+           if(pointer.next == null){
+               Node newNode = new Node(v);
+               pointer.next = newNode;
+               newNode.next = null;
+               break;
+           }
+           pointer = pointer.next;
+       }
+   }
+    public void insertBefore(T v,T value){
+        Node pointer = this.head;
+        while(pointer != null){
+            if(pointer.next.value == v){
+                Node newNode = new Node(value);
+                newNode.next = pointer.next;
+                pointer.next = newNode;
+
+                break;
+            }
+            pointer = pointer.next;
 
 
 
+    }
 
-
+    }
+    public void insertAfter(T v,T value) {
+        Node pointer = this.head;
+        while (pointer != null) {
+            pointer = pointer.next;
+            if (pointer.next.value == v) {
+                Node newNode = new Node(value);
+                newNode.next = pointer.next;
+                pointer.next = newNode;
+                break;
+            }
+        }
+    }
 }

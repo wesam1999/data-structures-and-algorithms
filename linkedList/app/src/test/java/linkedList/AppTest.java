@@ -13,7 +13,7 @@ class AppTest {
     @Test void toString1Test(){
         linkedList<String> newlist = new linkedList();
      String result="{link list} ->{this} ->{in } ->{it} ->{have} ->{we} ->{value} ->{any} ->null";
-       
+
 
 
     }
