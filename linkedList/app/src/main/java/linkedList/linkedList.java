@@ -103,4 +103,28 @@ return  result.toString();
     }
 
     }
+    public String kthFromEnd(int k){
+        int len = 0;
+        Node temp = head;
+
+        // 1) count the number of nodes in Linked List
+        while (temp != null) {
+            temp = temp.next;
+            len++;
+        }
+
+        // check if value of k is not more than length of
+        // the linked list
+        if (len < k)
+            return "Exception";
+
+        temp = head;
+
+        // 2) get the (len-n+1)th node from the beginning
+        for (int i = 1; i < len - k + 1; i++)
+            temp = temp.next;
+
+       return (String) temp.value;
+
+}
 }
