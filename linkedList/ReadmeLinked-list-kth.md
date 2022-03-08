@@ -10,8 +10,8 @@ kthFromEnd:
 O(n) time/space
 
 ## Solution
-I write the code like :
-String a=newlist.kthFromEnd(1(the number of you return it to you ));
-System.out.println(a);
-the result is :
-(this) in the scanner.
+I write the code like :<br />
+String a=newlist.kthFromEnd(1(the number of you return it to you ));<br />
+System.out.println(a);<br />
+the result is :<br />
+(this) in the scanner.<br />
