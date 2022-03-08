@@ -66,23 +66,26 @@ return  result.toString();
        }
    }
     public void insertBefore(T v,T value){
-        Node pointer = this.head;
-        while(pointer != null){
-            if(pointer.next.value == v){
-                Node newNode = new Node(value);
-                newNode.next = pointer.next;
-                pointer.next = newNode;
+       try{ Node pointer = this.head;
+           while (pointer != null) {
+               if (pointer.next.value == v) {
+                   Node newNode = new Node(value);
+                   newNode.next = pointer.next;
+                   pointer.next = newNode;
 
-                break;
-            }
-            pointer = pointer.next;
+                   break;
+               }
+               pointer = pointer.next;
 
 
+           }}catch (Exception e){
+           System.out.println(e.toString());
+       }
 
-    }
 
     }
     public void insertAfter(T v,T value) {
+    try {
         Node pointer = this.head;
         while (pointer != null) {
             pointer = pointer.next;
@@ -93,5 +96,11 @@ return  result.toString();
                 break;
             }
         }
+    }catch (Exception e){
+
+        System.out.println(e.toString());
+
+    }
+
     }
 }

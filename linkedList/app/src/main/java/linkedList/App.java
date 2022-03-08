@@ -19,12 +19,12 @@ public class App {
         newlist.insert("link list");
 
         System.out.println(newlist.includes("any"));
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("enter number you will add before the first node that has the value specified ");
-     String s=scanner.nextLine();
-        System.out.println("enter number you will add it ");
-        String s2=scanner.nextLine();
-        newlist.insertBefore(s,s2);
+//        Scanner scanner=new Scanner(System.in);
+//        System.out.println("enter number you will add before the first node that has the value specified ");
+//     String s=scanner.nextLine();
+//        System.out.println("enter number you will add it ");
+//        String s2=scanner.nextLine();
+//        newlist.insertBefore(s,s2);
         System.out.println(newlist.toString1());
     }
 }
