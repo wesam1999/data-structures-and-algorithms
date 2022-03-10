@@ -44,24 +44,125 @@ return false;
 public String toString1(){
     Node pointer = this.head;
     StringBuilder result = new StringBuilder();
-try{
-    while (pointer !=null){
-
+try{while (pointer !=null){
      result.append('{').append(pointer.value).append("} ->");
      pointer=pointer.next;
-
-
-
-
     }result.append("null");
 }catch (Exception exception){
     System.out.println(exception.toString());
 }
-
-
 return  result.toString();
 }
+   public void append(T v){
+       Node pointer = this.head;
+       while(pointer != null){
+           if(pointer.next == null){
+               Node newNode = new Node(v);
+               pointer.next = newNode;
+               newNode.next = null;
+               break;
+           }
+           pointer = pointer.next;
+       }
+   }
+    public void insertBefore(T v,T value){
+       try{ Node pointer = this.head;
+           while (pointer != null) {
+               if (pointer.next.value == v) {
+                   Node newNode = new Node(value);
+                   newNode.next = pointer.next;
+                   pointer.next = newNode;
 
+                   break;
+               }
+               pointer = pointer.next;
+
+
+           }}catch (Exception e){
+           System.out.println(e.toString());
+       }
+
+
+    }
+    public void insertAfter(T v,T value) {
+    try {
+        Node pointer = this.head;
+        while (pointer != null) {
+            pointer = pointer.next;
+            if (pointer.next.value == v) {
+                Node newNode = new Node(value);
+                newNode.next = pointer.next;
+                pointer.next = newNode;
+                break;
+            }
+        }
+    }catch (Exception e){
+
+        System.out.println(e.toString());
+
+    }
+
+    }
+    public String kthFromEnd(int k){
+        int len = 0;
+        Node temp = head;
+
+        // 1) count the number of nodes in Linked List
+        while (temp != null) {
+            temp = temp.next;
+            len++;
+        }
+
+        // check if value of k is not more than length of
+        // the linked list
+        if (len < k)
+            return "Exception";
+
+        temp = head;
+
+        // 2) get the (len-n+1)th node from the beginning
+        for (int i = 1; i < len - k + 1; i++)
+            temp = temp.next;
+
+       return (String) temp.value;
+
+}
+public Node zip_lists(Node a, Node b){
+
+
+    Node dummy = new Node();
+    Node tail = dummy;
+
+    while (true)
+    {
+        // empty list cases
+        if (a == null)
+        {
+            tail.next = b;
+            break;
+        }
+
+        else if (b == null)
+        {
+            tail.next = a;
+            break;
+        }
+
+        // common case: move two nodes to the tail
+        else {
+            tail.next = a;
+            tail = a;
+            a = a.next;
+
+            tail.next = b;
+            tail = b;
+            b = b.next;
+        }
+    }
+
+    return dummy.next;
+
+    }
 
 
 
