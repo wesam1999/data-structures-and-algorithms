@@ -127,4 +127,44 @@ return  result.toString();
        return (String) temp.value;
 
 }
+public Node zip_lists(Node a, Node b){
+
+
+    Node dummy = new Node();
+    Node tail = dummy;
+
+    while (true)
+    {
+        // empty list cases
+        if (a == null)
+        {
+            tail.next = b;
+            break;
+        }
+
+        else if (b == null)
+        {
+            tail.next = a;
+            break;
+        }
+
+        // common case: move two nodes to the tail
+        else {
+            tail.next = a;
+            tail = a;
+            a = a.next;
+
+            tail.next = b;
+            tail = b;
+            b = b.next;
+        }
+    }
+
+    return dummy.next;
+
+    }
+
+
+
+
 }

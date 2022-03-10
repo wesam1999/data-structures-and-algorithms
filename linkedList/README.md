@@ -10,7 +10,7 @@ arguments: value, new value<br />
 adds a new node with the given new value immediately after the first node that has the value specified<br />
 
 ## Whiteboard Process
-![whiteboard ](image.png)
+![whiteboard ](Microsoft%20Whiteboard%203_10_2022%202_37_42%20PM.png)
 
 ## Approach & Efficiency
 What approach did you take? Why? What is the Big O space/time for this approach? <br />
