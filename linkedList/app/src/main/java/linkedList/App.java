@@ -25,7 +25,7 @@ public class App {
 //        System.out.println("enter number you will add it ");
 //        String s2=scanner.nextLine();
 //        newlist.insertBefore(s,s2);
-
+newlist.append("wesam");
         System.out.println(newlist.toString1());
     }
 }
