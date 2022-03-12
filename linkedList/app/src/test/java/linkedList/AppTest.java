@@ -116,7 +116,7 @@ newlist.append("wesam");
         newlist1.insert("this");
         newlist1.insert("link list");
 
-        // how to do it 
+        // how to do it
     }
 
 
