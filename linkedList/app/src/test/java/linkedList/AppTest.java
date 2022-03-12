@@ -7,20 +7,117 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
 
-    }
     @Test void toString1Test(){
         linkedList<String> newlist = new linkedList();
+        newlist.insert("any");
+        newlist.insert("value");
+        newlist.insert("we");
+        newlist.insert("have");
+        newlist.insert("it");
+        newlist.insert("in ");
+        newlist.insert("this");
+        newlist.insert("link list");
      String result="{link list} ->{this} ->{in } ->{it} ->{have} ->{we} ->{value} ->{any} ->null";
-
-
-
+        System.out.println(newlist.toString1());
+assertSame(result,newlist.toString1());
     }
+
+
+
     @Test void includes(){
         linkedList<String> newlist = new linkedList();
+        newlist.insert("any");
+        newlist.insert("value");
+        newlist.insert("we");
+        newlist.insert("have");
+        newlist.insert("it");
+        newlist.insert("in ");
+        newlist.insert("this");
+        newlist.insert("link list");
         boolean a=newlist.includes("any");
-        assertFalse(a);
+
+        assertTrue(a);
 
     }
+@Test void appendtest(){
+    linkedList<String> newlist = new linkedList();
+    newlist.insert("any");
+    newlist.insert("value");
+    newlist.insert("we");
+    newlist.insert("have");
+    newlist.insert("it");
+    newlist.insert("in ");
+    newlist.insert("this");
+    newlist.insert("link list");
+String result="{link list} ->{this} ->{in } ->{it} ->{have} ->{we} ->{value} ->{any} ->{wesam} ->null";
+newlist.append("wesam");
+    assertSame(result,newlist.toString1());
+}
+    @Test void insertBeforetest(){
+        linkedList<String> newlist = new linkedList();
+        newlist.insert("any");
+        newlist.insert("value");
+        newlist.insert("we");
+        newlist.insert("have");
+        newlist.insert("it");
+        newlist.insert("in ");
+        newlist.insert("this");
+        newlist.insert("link list");
+        String result="{link list} ->{this} ->{in }->{qwe} ->{it} ->{have} ->{we} ->{value} ->{any} ->null";
+        newlist.insertBefore("it","qwe");
+        assertSame(result,newlist.toString1());
+    }
+    @Test void insertAftertest(){
+        linkedList<String> newlist = new linkedList();
+        newlist.insert("any");
+        newlist.insert("value");
+        newlist.insert("we");
+        newlist.insert("have");
+        newlist.insert("it");
+        newlist.insert("in ");
+        newlist.insert("this");
+        newlist.insert("link list");
+        String result="{link list} ->{this} ->{in } ->{it} ->{qwe} ->{have} ->{we} ->{value} ->{any}  ->null";
+        newlist.insertAfter("it","qwe");
+        assertSame(result,newlist.toString1());
+    }
+    @Test void kthFromEndtest(){
+        linkedList<String> newlist = new linkedList();
+        newlist.insert("any");
+        newlist.insert("value");
+        newlist.insert("we");
+        newlist.insert("have");
+        newlist.insert("it");
+        newlist.insert("in ");
+        newlist.insert("this");
+        newlist.insert("link list");
+        String result="{it}";
+
+        assertSame(result,newlist.kthFromEnd(5));
+    }
+    @Test void zip_liststest(){
+        linkedList<String> newlist = new linkedList();
+        newlist.insert("any");
+        newlist.insert("value");
+        newlist.insert("we");
+        newlist.insert("have");
+        newlist.insert("it");
+        newlist.insert("in ");
+        newlist.insert("this");
+        newlist.insert("link list");
+        linkedList<String> newlist1 = new linkedList();
+        newlist1.insert("any");
+        newlist1.insert("value");
+        newlist1.insert("we");
+        newlist1.insert("have");
+        newlist1.insert("it");
+        newlist1.insert("in ");
+        newlist1.insert("this");
+        newlist1.insert("link list");
+
+        // how to do it 
+    }
+
+
 }
