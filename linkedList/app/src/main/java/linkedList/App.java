@@ -26,6 +26,15 @@ public class App {
 //        String s2=scanner.nextLine();
 //        newlist.insertBefore(s,s2);
 newlist.append("wesam");
+        linkedList<String> newlist1 = new linkedList();
         System.out.println(newlist.toString1());
+        System.out.println();
+        Node<String> node=newlist1.reverse(newlist);
+        while (node!=null){
+            System.out.print(node.value);node=node.next;
+        }
+
+
+
     }
 }

@@ -163,7 +163,27 @@ public Node zip_lists(Node a, Node b){
     return dummy.next;
 
     }
+    // Method for reversing the linked list
+    Node<T> reverse(linkedList<T> node) {
+        Node<T> pointer = node.head;
+       Node<T> curr = pointer;
+        Node<T> nex = null;
+        Node<T> prev = null;
+        linkedList<T> newLinklist=null ;
+        while (curr != null) {
+            nex= curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nex;
 
+//            newLinklist.insert((T) prev);
+//          pointer=pointer.next;
+
+        }
+
+
+       return prev;
+    }
 
 
 
