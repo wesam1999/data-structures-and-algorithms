@@ -91,8 +91,8 @@ return  result.toString();
             pointer = pointer.next;
             if (pointer.next.value == v) {
                 Node newNode = new Node(value);
-                newNode.next = pointer.next;
-                pointer.next = newNode;
+                newNode.next = pointer.next.next;
+                pointer.next.next = newNode;
                 break;
             }
         }
