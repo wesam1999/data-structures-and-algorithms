@@ -4,18 +4,140 @@
 package stack.and.queue;
 
 import org.junit.jupiter.api.Test;
+import stack.and.queue.queue.data.QueueNode;
+import stack.and.queue.queue.structure.Queue;
+import stack.and.queue.stacks.data.StackNode;
+import stack.and.queue.stacks.structure.Stack;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
+// ---------------------------for Stacks -----------------------------------------
 
     @Test void Stackpop(){
+        Stack stack=new Stack();
+        if (stack.isEmpty()){
+            System.out.println("this stack is empty");
 
+        }
 
+        stack.push(new StackNode("wesam","23213-321983213-232"));
+        stack.push(new StackNode("ali","2321s2133-7982"));
+        stack.push(new StackNode("kaled","232432413-32139879213-232"));
+        stack.push(new StackNode("frede","236546213-3213-0=-213-232"));
+        stack.push(new StackNode("wdsad","78876-79-2309802"));
+        System.out.println(stack.pop());
+       String expected="{frede,236546213-3213-0=-213-232}";
+assertEquals(expected,stack.pop());
     }
     @Test void StackPush(){
+        Stack stack=new Stack();
+        if (stack.isEmpty()){
+            System.out.println("this stack is empty");
 
+        }
+
+        stack.push(new StackNode("wesam","23213-321983213-232"));
+        stack.push(new StackNode("ali","2321s2133-7982"));
+        stack.push(new StackNode("kaled","232432413-32139879213-232"));
+        stack.push(new StackNode("frede","236546213-3213-0=-213-232"));
+        stack.push(new StackNode("wdsad","78876-79-2309802"));
+
+        String expected="{wdsad,78876-79-2309802}";
+        assertEquals(expected,stack);
 
     }
-    @Test void Stack
+    @Test void StackisEmpty(){
+
+            Stack stack=new Stack();
+            if (stack.isEmpty()){
+                System.out.println("this stack is empty");
+
+            }
+assertTrue(stack.isEmpty());
+//            stack.push(new StackNode("wesam","23213-321983213-232"));
+//            stack.push(new StackNode("ali","2321s2133-7982"));
+//            stack.push(new StackNode("kaled","232432413-32139879213-232"));
+//            stack.push(new StackNode("frede","236546213-3213-0=-213-232"));
+//            stack.push(new StackNode("wdsad","78876-79-2309802"));
+//
+//            String expected="{wdsad,78876-79-2309802}";
+//            assertEquals(expected,stack);
+
+        }
+    @Test void StackPeek(){
+        Stack stack=new Stack();
+        if (stack.isEmpty()){
+            System.out.println("this stack is empty");
+
+        }
+
+        stack.push(new StackNode("wesam","23213-321983213-232"));
+        stack.push(new StackNode("ali","2321s2133-7982"));
+        stack.push(new StackNode("kaled","232432413-32139879213-232"));
+        stack.push(new StackNode("frede","236546213-3213-0=-213-232"));
+        stack.push(new StackNode("wdsad","78876-79-2309802"));
+
+        String expected="{wdsad,78876-79-2309802}";
+        assertEquals(expected,stack.peek());
+
+    }
+// -------------------------------for queue---------------------------------------------
+
+    @Test void queueisEmpty(){
+        Queue queue=new Queue();
+
+assertTrue(queue.isEmpty());
+//        stack.push(new StackNode("wesam","23213-321983213-232"));
+//        stack.push(new StackNode("ali","2321s2133-7982"));
+//        stack.push(new StackNode("kaled","232432413-32139879213-232"));
+//        stack.push(new StackNode("frede","236546213-3213-0=-213-232"));
+//        stack.push(new StackNode("wdsad","78876-79-2309802"));
+//
+//        String expected="{wdsad,78876-79-2309802}";
+//        assertEquals(expected,stack);
+
+    }
+    @Test void queueEnqueuetest(){
+        Queue queue=new Queue();
+
+        assertTrue(queue.isEmpty());
+        queue.enqueue (new QueueNode("wesam","23213-321983213-232"));
+        queue.enqueue(new QueueNode("ali","2321s2133-7982"));
+        queue.enqueue(new QueueNode("kaled","232432413-32139879213-232"));
+        queue.enqueue(new QueueNode("frede","236546213-3213-0=-213-232"));
+        queue.enqueue(new QueueNode("wdsad","78876-79-2309802"));
+
+        String expected="{wdsad,78876-79-2309802}";
+        assertEquals(expected,queue);
+
+    }
+    @Test void queueDequeuetest(){
+        Queue queue=new Queue();
+
+        assertTrue(queue.isEmpty());
+        queue.enqueue (new QueueNode("wesam","23213-321983213-232"));
+        queue.enqueue(new QueueNode("ali","2321s2133-7982"));
+        queue.enqueue(new QueueNode("kaled","232432413-32139879213-232"));
+        queue.enqueue(new QueueNode("frede","236546213-3213-0=-213-232"));
+        queue.enqueue(new QueueNode("wdsad","78876-79-2309802"));
+queue.dequeue();
+        String expected="{frede,236546213-3213-0=-213-232}";
+        assertEquals(expected,queue);
+
+    }
+    @Test void QueuePeektest(){
+        Queue queue=new Queue();
+        queue.enqueue (new QueueNode("wesam","23213-321983213-232"));
+        queue.enqueue(new QueueNode("ali","2321s2133-7982"));
+        queue.enqueue(new QueueNode("kaled","232432413-32139879213-232"));
+        queue.enqueue(new QueueNode("frede","236546213-3213-0=-213-232"));
+        queue.enqueue(new QueueNode("wdsad","78876-79-2309802"));
+
+        String expected="{wdsad,78876-79-2309802}";
+        assertEquals(expected,queue.peek());
+    }
+
+    
 
 }
