@@ -127,40 +127,118 @@ return  result.toString();
        return (String) temp.value;
 
 }
+    static Node reverseList(Node head)
+    {
+
+        if (head.next == null)
+            return head;
+
+        Node rest = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return rest;
+    }
 public Node zip_lists(Node a, Node b){
 
+// Reverse Linked List 'a'
+    a = reverseList(a);
 
-    Node dummy = new Node();
-    Node tail = dummy;
+    // Reverse Linked List 'b'
+    b = reverseList(b);
 
-    while (true)
-    {
-        // empty list cases
-        if (a == null)
-        {
-            tail.next = b;
-            break;
+    // Initialize head of resultant list
+    Node head = null;
+
+    Node temp;
+
+    // Traverse both lists while both of them
+    // have nodes.
+    while (a != null && b != null) {
+
+        // If a's current value is greater than or equal to
+        // b's current value.
+        if (a.key >= b.key) {
+
+            // Store next of current Node in first list
+            temp = a.next;
+
+            // Add 'a' at the front of resultant list
+            a.next = head;
+
+            // Make 'a' - head of the result list
+            head = a;
+
+            // Move ahead in first list
+            a = temp;
         }
 
-        else if (b == null)
-        {
-            tail.next = a;
-            break;
-        }
-
-        // common case: move two nodes to the tail
+        // If b's value is greater. Below steps are similar
+        // to above (Only 'a' is replaced with 'b')
         else {
-            tail.next = a;
-            tail = a;
-            a = a.next;
 
-            tail.next = b;
-            tail = b;
-            b = b.next;
+            temp = b.next;
+            b.next = head;
+            head = b;
+            b = temp;
         }
     }
 
-    return dummy.next;
+    // If second list reached end, but first list has
+    // nodes. Add remaining nodes of first list at the
+    // beginning of result list
+    while (a != null) {
+
+        temp = a.next;
+        a.next = head;
+        head = a;
+        a = temp;
+    }
+
+    // If first list reached end, but second list has
+    // nodes. Add remaining nodes of second list at the
+    // beginning of result list
+    while (b != null) {
+
+        temp = b.next;
+        b.next = head;
+        head = b;
+        b = temp;
+    }
+
+    // Return the head of the result list
+    return head;
+////    Node dummy = new Node();
+////    Node tail = dummy;
+////
+////    while (true)
+////    {
+////        // empty list cases
+////        if (a == null)
+////        {
+////            tail.next = b;
+////            break;
+////        }
+////
+////        else if (b == null)
+////        {
+////            tail.next = a;
+////            break;
+////        }
+////
+////        // common case: move two nodes to the tail
+////        else {
+////            tail.next = a;
+////            tail = a;
+////            a = a.next;
+////
+////            tail.next = b;
+////            tail = b;
+////            b = b.next;
+////        }
+//    }
+//
+//    return dummy.next;
 
     }
     // Method for reversing the linked list
