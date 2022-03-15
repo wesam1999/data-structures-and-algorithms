@@ -20,7 +20,7 @@ class AppTest {
         newlist.insert("link list");
      String result="{link list} ->{this} ->{in } ->{it} ->{have} ->{we} ->{value} ->{any} ->null";
         System.out.println(newlist.toString1());
-assertSame(result,newlist.toString1());
+assertEquals(result,newlist.toString1());
     }
 
 
@@ -52,7 +52,7 @@ assertSame(result,newlist.toString1());
     newlist.insert("link list");
 String result="{link list} ->{this} ->{in } ->{it} ->{have} ->{we} ->{value} ->{any} ->{wesam} ->null";
 newlist.append("wesam");
-    assertSame(result,newlist.toString1());
+assertEquals(result,newlist.toString1());
 }
     @Test void insertBeforetest(){
         linkedList<String> newlist = new linkedList();
@@ -64,9 +64,11 @@ newlist.append("wesam");
         newlist.insert("in ");
         newlist.insert("this");
         newlist.insert("link list");
-        String result="{link list} ->{this} ->{in }->{qwe} ->{it} ->{have} ->{we} ->{value} ->{any} ->null";
+        String result="{link list} ->{this} ->{in } ->{qwe} ->{it} ->{have} ->{we} ->{value} ->{any} ->null";
+        System.out.println(newlist.toString1());
         newlist.insertBefore("it","qwe");
-        assertSame(result,newlist.toString1());
+        System.out.println(newlist.toString1());
+        assertEquals(result,newlist.toString1());
     }
     @Test void insertAftertest(){
         linkedList<String> newlist = new linkedList();
@@ -78,9 +80,11 @@ newlist.append("wesam");
         newlist.insert("in ");
         newlist.insert("this");
         newlist.insert("link list");
-        String result="{link list} ->{this} ->{in } ->{it} ->{qwe} ->{have} ->{we} ->{value} ->{any}  ->null";
+        String result="{link list} ->{this} ->{in } ->{it} ->{qwe} ->{have} ->{we} ->{value} ->{any} ->null";
+        System.out.println(newlist.toString1());
         newlist.insertAfter("it","qwe");
-        assertSame(result,newlist.toString1());
+        System.out.println(newlist.toString1());
+        assertEquals(result,newlist.toString1());
     }
     @Test void kthFromEndtest(){
         linkedList<String> newlist = new linkedList();
@@ -92,9 +96,9 @@ newlist.append("wesam");
         newlist.insert("in ");
         newlist.insert("this");
         newlist.insert("link list");
-        String result="{it}";
+        String result="it";
 
-        assertSame(result,newlist.kthFromEnd(5));
+        assertEquals(result,newlist.kthFromEnd(5));
     }
     @Test void zip_liststest(){
         linkedList<String> newlist = new linkedList();
