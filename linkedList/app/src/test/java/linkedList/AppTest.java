@@ -102,24 +102,36 @@ assertEquals(result,newlist.toString1());
     }
     @Test void zip_liststest(){
         linkedList<String> newlist = new linkedList();
-        newlist.insert("any");
-        newlist.insert("value");
-        newlist.insert("we");
-        newlist.insert("have");
-        newlist.insert("it");
-        newlist.insert("in ");
-        newlist.insert("this");
-        newlist.insert("link list");
-        linkedList<String> newlist1 = new linkedList();
-        newlist1.insert("any");
-        newlist1.insert("value");
-        newlist1.insert("we");
-        newlist1.insert("have");
-        newlist1.insert("it");
-        newlist1.insert("in ");
-        newlist1.insert("this");
-        newlist1.insert("link list");
+//        newlist.insert("any");
+//        newlist.insert("value");
+//        newlist.insert("we");
+//        newlist.insert("have");
+//        newlist.insert("it");
+//        newlist.insert("in ");
+//        newlist.insert("this");
+//        newlist.insert("link list");
+//        linkedList<String> newlist1 = new linkedList();
+//        newlist1.insert("any");
+//        newlist1.insert("value");
+//        newlist1.insert("we");
+//        newlist1.insert("have");
+//        newlist1.insert("it");
+//        newlist1.insert("in ");
+//        newlist1.insert("this");
+//        newlist1.insert("link list");
+        Node a=new Node("any");
+        a.next=new Node("value");
+        a.next.next=new Node("we");
+        Node b=new Node("any");
+        b.next=new Node("value");
+        b.next.next=new Node("we");
+        System.out.println(a.toString());
+        System.out.println(newlist.zip_lists(a,b).toString());
+//String result="{link list} ->{link list} ->{this} ->{this} ->{in } ->{in } ->{it} ->{it} ->{have} ->{have} ->{we} ->{we} ->{value} ->{value} ->{any} ->{any} ->null";
 
+
+
+//        assertEquals(result,newlist.zip_lists(,));
         // how to do it
     }
 
