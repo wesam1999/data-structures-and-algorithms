@@ -26,4 +26,11 @@ public class StackNode {
         this.next = next;
     }
 
+    @Override
+    public String toString() {
+        return "StackNode{" +
+                "name='" + name + '\'' +
+                ", number='" + number + '\'' +
+                '}';
+    }
 }

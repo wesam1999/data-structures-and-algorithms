@@ -21,23 +21,25 @@ if (isEmpty()){
     top=a;
     return a;
 }else {
-    a.setNext(a);
+    a.setNext(top);
+    top=a;
     return a;
 }
 
 }
 public StackNode pop(){
+    StackNode pointer;
         if (isEmpty()){
 
             throw  new EmptyStackException();
 
         }
         else {
-
+pointer=top;
 top=top.getNext();
-            return top;
-        }
 
+        }
+    return top;
 }
     public StackNode peek(){
 if (isEmpty()){
