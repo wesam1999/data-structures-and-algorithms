@@ -3,12 +3,15 @@
  */
 package stack.and.queue;
 
+import stack.and.queue.queue.data.QueueNode;
+import stack.and.queue.queue.structure.Queue;
 import stack.and.queue.stacks.data.StackNode;
 import stack.and.queue.stacks.structure.Stack;
 
 public class Library {
     public static void main(String[] args) {
         System.out.println("--------- that is for Stacks and queue----------");
+        System.out.println("for Stacks" );
         Stack stack=new Stack();
 if (stack.isEmpty()){
     System.out.println("this stack is empty");
@@ -20,6 +23,24 @@ if (stack.isEmpty()){
         stack.push(new StackNode("kaled","232432413-32139879213-232"));
         stack.push(new StackNode("frede","236546213-3213-0=-213-232"));
         stack.push(new StackNode("wdsad","78876-79-2309802"));
+//        stack.pop();
+        System.out.println(stack.peek());
+
         System.out.println(stack.toString());
+        System.out.println("for Queue");
+        Queue queue=new Queue();
+        if (queue.isEmpty()){
+            System.out.println("this stack is empty");
+
+        }
+        queue.enqueue(new QueueNode("sdfbjkdsf","12213-32454-5-67657"));
+        queue.enqueue(new QueueNode("ali","4566-32454-5-67657"));
+        queue.enqueue(new QueueNode("hamza","89-32454-5-67657"));
+        queue.enqueue(new QueueNode("frede","0000-ds-5-67657"));
+        queue.enqueue(new QueueNode("wesam","000-32454-5-67657"));
+        queue.enqueue(new QueueNode("sjhgvcb","00000-32454-5-67657"));
+        queue.dequeue();
+        System.out.println(queue.toString());
+
     }
 }

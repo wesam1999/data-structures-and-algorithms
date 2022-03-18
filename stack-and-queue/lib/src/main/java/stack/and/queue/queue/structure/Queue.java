@@ -26,12 +26,12 @@ public Queue() {
             back=a;
             size++;
             return a;
-        }else {
+        }else if (size< size_Queue){
             a.setNext(back);
             size++;
             return a;
         }
-
+return a  ;
     }
     public QueueNode dequeue(){
 QueueNode frontT;
