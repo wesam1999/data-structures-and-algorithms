@@ -12,10 +12,22 @@ Arguments: none<br />
 Extracts a value from the PseudoQueue, using a first-in, first-out approach.h<br />
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![image](image.png)
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+enQueue method
+O(n)for Space and time
+deQueue
+O(1)for space and time
 
 ## Solution
-<!-- Show how to run your code, and examples of it in action -->
+enQueue
+Output:
+[5]->[10]->[15]->[20]
+Input:
+[10]->[15]->[20]
+deQueue
+Output:
+[5]->[10]
+Input:
+[5]->[10]->[15]
