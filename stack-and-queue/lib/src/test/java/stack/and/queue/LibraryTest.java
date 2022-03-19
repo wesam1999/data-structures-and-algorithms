@@ -27,8 +27,8 @@ class LibraryTest {
         stack.push(new StackNode("frede","236546213-3213-0=-213-232"));
         stack.push(new StackNode("wdsad","78876-79-2309802"));
         System.out.println(stack.pop());
-       String expected="{frede,236546213-3213-0=-213-232}";
-assertEquals(expected,stack.pop());
+       String expected="StackNode{name='kaled', number='232432413-32139879213-232'}";
+assertEquals(expected,stack.pop().toString());
     }
     @Test void StackPush(){
         Stack stack=new Stack();
@@ -43,8 +43,8 @@ assertEquals(expected,stack.pop());
         stack.push(new StackNode("frede","236546213-3213-0=-213-232"));
         stack.push(new StackNode("wdsad","78876-79-2309802"));
 
-        String expected="{wdsad,78876-79-2309802}";
-        assertEquals(expected,stack);
+        String expected="Stack{top=StackNode{name='wdsad', number='78876-79-2309802'}}";
+        assertEquals(expected,stack.toString());
 
     }
     @Test void StackisEmpty(){
@@ -78,8 +78,8 @@ assertTrue(stack.isEmpty());
         stack.push(new StackNode("frede","236546213-3213-0=-213-232"));
         stack.push(new StackNode("wdsad","78876-79-2309802"));
 
-        String expected="{wdsad,78876-79-2309802}";
-        assertEquals(expected,stack.peek());
+        String expected="StackNode{name='wdsad', number='78876-79-2309802'}";
+        assertEquals(expected,stack.peek().toString());
 
     }
 // -------------------------------for queue---------------------------------------------
@@ -108,8 +108,8 @@ assertTrue(queue.isEmpty());
         queue.enqueue(new QueueNode("frede","236546213-3213-0=-213-232"));
         queue.enqueue(new QueueNode("wdsad","78876-79-2309802"));
 
-        String expected="{wdsad,78876-79-2309802}";
-        assertEquals(expected,queue);
+        String expected="Queue{front=QueueNode{name='wesam', number='23213-321983213-232'}, back=QueueNode{name='wesam', number='23213-321983213-232'}, size=5}";
+        assertEquals(expected,queue.toString());
 
     }
     @Test void queueDequeuetest(){
@@ -121,9 +121,9 @@ assertTrue(queue.isEmpty());
         queue.enqueue(new QueueNode("kaled","232432413-32139879213-232"));
         queue.enqueue(new QueueNode("frede","236546213-3213-0=-213-232"));
         queue.enqueue(new QueueNode("wdsad","78876-79-2309802"));
-queue.dequeue();
-        String expected="{frede,236546213-3213-0=-213-232}";
-        assertEquals(expected,queue);
+
+        String expected="QueueNode{name='wesam', number='23213-321983213-232'}";
+        assertEquals(expected.toString(),queue.dequeue().toString());
 
     }
     @Test void QueuePeektest(){
@@ -134,8 +134,8 @@ queue.dequeue();
         queue.enqueue(new QueueNode("frede","236546213-3213-0=-213-232"));
         queue.enqueue(new QueueNode("wdsad","78876-79-2309802"));
 
-        String expected="{wdsad,78876-79-2309802}";
-        assertEquals(expected,queue.peek());
+        String expected="QueueNode{name='wesam', number='23213-321983213-232'}";
+        assertEquals(expected.toString(),queue.peek().toString());
     }
 
 
