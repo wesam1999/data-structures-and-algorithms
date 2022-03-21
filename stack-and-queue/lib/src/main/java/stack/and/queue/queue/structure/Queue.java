@@ -1,7 +1,6 @@
 package stack.and.queue.queue.structure;
 
 import stack.and.queue.queue.data.QueueNode;
-import stack.and.queue.stacks.data.StackNode;
 
 import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
@@ -20,20 +19,20 @@ public Queue() {
 
         return front==null;
     }
-    public QueueNode enqueue(QueueNode a){
+    public String enqueue(QueueNode a){
         if (isEmpty()){
             front=a;
             back=a;
             size++;
-            return a;
+            return a.getName();
         }else if (size< size_Queue){
             a.setNext(back);
             size++;
-            return a;
+            return a.getName();
         }
-return a  ;
+return a.getName()  ;
     }
-    public QueueNode dequeue(){
+    public String dequeue(){
 QueueNode frontT;
         if (isEmpty()){
 
@@ -47,16 +46,16 @@ QueueNode frontT;
             size--;
 
         }
-        return frontT;
+        return frontT.getName();
     }
-    public QueueNode peek(){
+    public String peek(){
         if (isEmpty()){
 
             throw new EmptyStackException();
 
         }
 
-        return front;
+        return front.getName();
 
     }
 
