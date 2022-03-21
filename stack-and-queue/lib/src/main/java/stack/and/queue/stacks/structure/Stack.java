@@ -16,18 +16,18 @@ public boolean isEmpty(){
 
         return top==null;
 }
-public StackNode push(StackNode a){
+public String push(StackNode a){
 if (isEmpty()){
     top=a;
-    return a;
+    return a.getName();
 }else {
     a.setNext(top);
     top=a;
-    return a;
+    return a.getName();
 }
 
 }
-public StackNode pop(){
+public String pop(){
     StackNode pointer;
         if (isEmpty()){
 
@@ -39,7 +39,7 @@ pointer=top;
 top=top.getNext();
 
         }
-    return top;
+    return top.getName();
 }
     public StackNode peek(){
 if (isEmpty()){

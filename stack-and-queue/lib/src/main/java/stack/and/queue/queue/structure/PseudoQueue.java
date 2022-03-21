@@ -32,7 +32,7 @@ public class PseudoQueue implements QueueInterface {
 
 
     @Override
-    public QueueNode dequeue() {
+    public String dequeue() {
         if (s1.isEmpty()) {
             System.out.println("Q is Empty");
             System.exit(0);
