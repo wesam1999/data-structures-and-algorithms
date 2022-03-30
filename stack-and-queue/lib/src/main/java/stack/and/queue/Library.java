@@ -5,6 +5,7 @@ package stack.and.queue;
 
 import stack.and.queue.queue.data.QueueNode;
 import stack.and.queue.queue.structure.Queue;
+import stack.and.queue.queue.structure.class14;
 import stack.and.queue.stacks.data.StackNode;
 import stack.and.queue.stacks.structure.Stack;
 
@@ -42,5 +43,10 @@ if (stack.isEmpty()){
         queue.dequeue();
         System.out.println(queue.toString());
 
+        class14 class14=new class14();
+
+        System.out.println(class14.DuckDuckGoose(new String[]{"1","2","3","4","5","6","7","8"},4));
+
     }
 }
+
