@@ -3,6 +3,9 @@ package trees.structure;
 import trees.data.BinaryNode;
 import trees.data.Node;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+
 public class BinarySearchTree <T extends Comparable<T>> {
     public enum TraversalOrder {
         INORDER,
@@ -102,8 +105,8 @@ public class BinarySearchTree <T extends Comparable<T>> {
 
         return false;
     }
-   public  int maxValue(Node node)
-    {
+
+    public int maxValue(Node node) {
         if (node == null)
             return Integer.MAX_VALUE;
 
@@ -117,5 +120,36 @@ public class BinarySearchTree <T extends Comparable<T>> {
             res = rres;
         return res;
 
-}
     }
+    private int V;
+    private LinkedList<Integer> adj[];
+    public int treeBreadthFirst(int binaryTree) {
+
+        boolean visited[] = new boolean[V];
+
+
+        LinkedList<Integer> queue = new LinkedList<Integer>();
+
+        visited[binaryTree] = true;
+        queue.add(binaryTree);
+
+        while (queue.size() > 0) {
+            binaryTree = queue.poll();
+            System.out.print(binaryTree + " ");
+
+
+            Iterator<Integer> it = adj[binaryTree].listIterator();
+            while (it.hasNext() == true) {
+                int n = it.next();
+                if (!visited[n]) {
+                    visited[n] = true;
+                    queue.add(n);
+
+                }
+            }
+        }
+
+
+        return binaryTree;
+    }
+}

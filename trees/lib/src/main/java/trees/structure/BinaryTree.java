@@ -42,7 +42,7 @@ public class BinaryTree {
         if (root != null) {
             Queue<BTNode> queue = new Queue<>();
             queue.enqueue(root);
-            levelOrderTraversalRecursive(queue);
+            postorderTraversalloop(queue);
         } else {
             System.out.println("the tree is empty ");
         }
