@@ -3,10 +3,22 @@
  */
 package trees;
 
+import trees.data.Node;
+import trees.structure.BinarySearchTree;
+
 public class Library {
 
 
     public static void main(String[] args) {
+
+        BinarySearchTree binarySearchTree=new BinarySearchTree();
+        Node node=new Node(12);
+        node.setLeftNode(new Node(12));
+        node.setRightNode(new Node(33));
+        node.getLeftNode().setLeftNode(new Node(55));
+        System.out.println(binarySearchTree.extractValues(node));
+        System.out.println(binarySearchTree.fizzBuzz(binarySearchTree.extractValues(node)));
+
         System.out.println("hallo world" );
     }
 }
