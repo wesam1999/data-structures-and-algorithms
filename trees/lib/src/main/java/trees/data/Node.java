@@ -1,6 +1,6 @@
 package trees.data;
 
-public  abstract class Node<T extends Comparable<T>> implements Comparable<Node<T>>{
+public class Node<T extends Comparable<T>> {
 private T data;
 private Node<T> leftNode;
 private Node<T> rightNode;
@@ -13,12 +13,16 @@ private Node<T> rightNode;
         return data;
     }
 
-    public Node<T> getLeftNode() {
+    public Node getLeftNode() {
         return leftNode;
     }
 
     public Node<T> getRightNode() {
         return rightNode;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 
     public void setLeftNode(Node<T> leftNode) {
@@ -28,6 +32,4 @@ private Node<T> rightNode;
     public void setRightNode(Node<T> rightNode) {
         this.rightNode = rightNode;
     }
-
-
 }

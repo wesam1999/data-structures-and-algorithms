@@ -1,54 +1,54 @@
 package trees.structure;
 
-import trees.data.BTNode;
+import trees.data.Node;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
-public class BinaryTree {
 
-    private BTNode root;
+public class BinaryTree <T extends Comparable<T>> {
 
-    public BTNode getRoot() {
+    private Node root;
+
+    public Node getRoot() {
         return root;
     }
-
-    public void setRoot(BTNode root) {
-        this.root = root;
+    private void printNode(Node<T> node) {
+        // implement this
     }
-
-    public void preOrderTraversalLoop() {
-        if (root != null) {
-            Queue<BTNode> queue = new Queue<>();
-            queue.enqueue(root);
-
-            BTNode node;
-            while (!queue.isQueueEmpty()) {
-                node = queue.dequeue();
-                System.out.print(node.getData() + " , ");
-                if (node.getLeft() != null) {
-                    queue.enqueue(node.getLeft());
-                }
-
-                if (node.getRight() != null) {
-                    queue.enqueue(node.getRight());
-                }
-            }
-        } else {
-            System.out.println("the tree is empty");
+    private void inOrder(Node<T> treeNode) {
+        if (treeNode == null) {
+            return;
         }
-    }
 
-    public void inordeTraversalloop() {
-        if (root != null) {
-            Queue<BTNode> queue = new Queue<>();
-            queue.enqueue(root);
-            postorderTraversalloop(queue);
-        } else {
-            System.out.println("the tree is empty ");
+        inOrder(treeNode.getLeftNode());
+
+        printNode(treeNode);
+
+        inOrder(treeNode.getRightNode());
+    }
+    private void preOrder(Node<T> treeNode){
+        if (treeNode == null) {
+            return;
         }
+        printNode(treeNode);
+        preOrder(treeNode.getLeftNode());
+        preOrder(treeNode.getRightNode());
+
+
+    }
+    private List<Node<T>> postOrder(Node<T> treeNode){
+        if (treeNode == null) {
+            return null;
+        }
+        postOrder(treeNode.getLeftNode());
+        postOrder(treeNode.getRightNode());
+        printNode(treeNode);
+        List<Node<T>> list=new ArrayList<Node<T>>();
+        list.add(treeNode);
+return list;
     }
 
-    private void postorderTraversalloop(Queue<BTNode> queue) {
 
-    }
+
 }

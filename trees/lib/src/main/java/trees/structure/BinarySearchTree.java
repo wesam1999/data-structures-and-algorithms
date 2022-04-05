@@ -1,110 +1,82 @@
 package trees.structure;
 
-import trees.data.BinaryNode;
 import trees.data.Node;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
-public class BinarySearchTree <T extends Comparable<T>> {
+public class BinarySearchTree <T extends Comparable<T>> extends BinaryTree<T>{
     public enum TraversalOrder {
         INORDER,
         PREORDER,
         POSTORDER
     }
 
-    private Node<T> root;
+    private Node root;
     private int size;
 
     public void Add(T data) {
-        if (isTreeEmpty()) {
-            root = new BinaryNode<>(data);
+        if (contains()) {
+            root = new Node((Integer) data);
             size++;
         } else {
             AddIn(data, root);
         }
     }
 
-    private void AddIn(T data, Node<T> root) {
+    private void AddIn(T data, Node root) {
+if (root==null){
+    root.setData(String.valueOf(new Node<>((Integer) data)));
+return;
+}
+Queue<Node> q= new Queue<Node>();
 
-    }
+        while (!q.isQueueEmpty()) {
 
-    public void traverse(TraversalOrder order) {
-        switch (order) {
-            case INORDER:
-                inOrder(root);
-                break;
-            case PREORDER:
-                preOrder(root);
-                break;
-            case POSTORDER:
-                postOrder(root);
-                break;
-            default:
-        }
-    }
-
-    private void inOrder(Node<T> treeNode) {
-        if (treeNode == null) {
-            return;
-        }
-
-        inOrder(treeNode.getLeftNode());
-
-        printNode(treeNode);
-
-        inOrder(treeNode.getRightNode());
-    }
-
-    private void preOrder(Node<T> treeNode) {
-        if (treeNode == null) {
-            return;
+root=q.dequeue();
+if (root.getLeftNode()==null){
+    root.setLeftNode(new Node((Integer) data));
+break;
+}else {
+    q.enqueue(root.getLeftNode());
+}
+if (root.getRightNode()==null){
+    root.setRightNode(new Node((Integer) data));
+    break;
+}else {
+    q.enqueue(root.getRightNode());
+}
         }
 
-        printNode(treeNode);
-
-        preOrder(treeNode.getLeftNode());
-
-        preOrder(treeNode.getRightNode());
     }
 
-    private void postOrder(Node<T> treeNode) {
-        if (treeNode == null) {
-            return;
-        }
 
-        postOrder(treeNode.getLeftNode());
 
-        postOrder(treeNode.getRightNode());
 
-        printNode(treeNode);
-    }
+//    public void traverse(TraversalOrder order) {
+//        switch (order) {
+//            case INORDER:
+//                inOrder(root);
+//                break;
+//            case PREORDER:
+//                preOrder(root);
+//                break;
+//            case POSTORDER:
+//                postOrder(root);
+//                break;
+//            default:
+//        }
+//    }
 
-    private void printNode(Node<T> node) {
-        // implement this
-    }
 
-    public int size() {
-        return size;
-    }
 
-    public boolean isTreeEmpty() {
+
+    public boolean contains() {
         return root == null;
     }
 
-    public boolean search(T searchTerm) {
-        if (isTreeEmpty()) {
-            return false;
-        } else {
-            return searchHelper(searchTerm, root);
-        }
-    }
-
-    private boolean searchHelper(T searchTerm, Node<T> root) {
-        // implement this
-
-        return false;
-    }
 
     public int maxValue(Node node) {
         if (node == null)
@@ -151,5 +123,41 @@ public class BinarySearchTree <T extends Comparable<T>> {
 
 
         return binaryTree;
+    }
+    public List<String> fizzBuzz(List<Integer> array){
+       List<String> arr = new ArrayList<>();
+        for (int i = 0; i < array.size(); i++) {
+            if (array.get(i)%3 ==0){
+arr.add("Fizz");
+            }
+            if (array.get(i)%5 ==0){
+arr.add("Buzz");
+            }
+            if (array.get(i)%3 ==0&&array.get(i)%5==0){
+                arr.add("FizzBuzz");
+            }
+            if (array.get(i)%3 ==1&&array.get(i)%5==1){
+                arr.add(array.get(i).toString());            }
+        }
+
+
+
+
+return arr;
+    }
+    public List<Integer> extractValues(Node n) {
+        List<Integer> result = new ArrayList<>();
+        if (n.getLeftNode() != null) {
+            result.addAll(extractValues(n.getLeftNode()));
+        }
+
+        if (n.getRightNode() != null) {
+            result.addAll(extractValues(n.getRightNode()));
+        }
+
+        result.add((Integer) n.getData());
+        System.out.println(result.size());
+
+        return result;
     }
 }

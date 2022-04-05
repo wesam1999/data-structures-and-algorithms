@@ -2,16 +2,16 @@ package trees.structure;
 
 
 
-import trees.data.BTNode;
+import trees.data.Node;
 
 import static java.lang.System.exit;
 import static sun.nio.cs.Surrogate.MAX;
 
 public class Queue<T> {
-    BTNode[] queue = new BTNode[0];
+    Node[] queue = new Node[0];
     int front = -1;
             int rear = -1;
-    public void enqueue(BTNode vertex) {
+    public void enqueue(Node vertex) {
 
         if(rear == MAX-1)
             System.out.println("Queue Overflow\n");
@@ -20,7 +20,7 @@ public class Queue<T> {
             if(front == -1)
                 front = 0;
             rear = rear+1;
-            queue[rear] = (BTNode) vertex;
+            queue[rear] = (Node) vertex;
         }
     }
 
@@ -33,8 +33,8 @@ public class Queue<T> {
             return false;
     }
 
-    public BTNode dequeue() {
-        BTNode delete_item;
+    public Node dequeue() {
+        Node delete_item;
         if(front == -1 || front > rear)
         {
             System.out.println("Queue Underflow\n");
