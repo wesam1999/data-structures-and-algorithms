@@ -6,16 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class BinaryTree <T extends Comparable<T>> {
+public class BinaryTree<T extends Comparable<T>> {
 
     private Node root;
 
     public Node getRoot() {
         return root;
     }
+
     private void printNode(Node<T> node) {
         // implement this
     }
+
     private void inOrder(Node<T> treeNode) {
         if (treeNode == null) {
             return;
@@ -27,8 +29,10 @@ public class BinaryTree <T extends Comparable<T>> {
 
         inOrder(treeNode.getRightNode());
     }
-    private void preOrder(Node<T> treeNode){
+
+    private void preOrder(Node<T> treeNode) {
         if (treeNode == null) {
+
             return;
         }
         printNode(treeNode);
@@ -37,17 +41,21 @@ public class BinaryTree <T extends Comparable<T>> {
 
 
     }
-    private List<Node<T>> postOrder(Node<T> treeNode){
+
+    private List<Node<T>> postOrder(Node<T> treeNode) {
         if (treeNode == null) {
             return null;
         }
         postOrder(treeNode.getLeftNode());
         postOrder(treeNode.getRightNode());
         printNode(treeNode);
-        List<Node<T>> list=new ArrayList<Node<T>>();
+        List<Node<T>> list = new ArrayList<Node<T>>();
         list.add(treeNode);
-return list;
+        return list;
     }
+
+
+
 
 
 

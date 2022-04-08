@@ -16,9 +16,23 @@ public class Library {
         node.setLeftNode(new Node(12));
         node.setRightNode(new Node(33));
         node.getLeftNode().setLeftNode(new Node(55));
+        node.getRightNode().setLeftNode(new Node(66));
+        node.getRightNode().setRightNode(new Node(77));
         System.out.println(binarySearchTree.extractValues(node));
         System.out.println(binarySearchTree.fizzBuzz(binarySearchTree.extractValues(node)));
-
+        System.out.println("---------------------------------------");
+        Node node2=new Node(11);
+        node2.setLeftNode(new Node(22));
+        node2.setRightNode(new Node(33));
+        node2.getLeftNode().setLeftNode(new Node(66));
+        node2.getRightNode().setLeftNode(new Node(55));
+        node2.getRightNode().setRightNode(new Node(77));
+        System.out.println(binarySearchTree.combetwotree(node,node2));
+        System.out.println(binarySearchTree);
         System.out.println("hallo world" );
+        System.out.println(binarySearchTree.getLeafCount(node2));
+
+
+
     }
 }
