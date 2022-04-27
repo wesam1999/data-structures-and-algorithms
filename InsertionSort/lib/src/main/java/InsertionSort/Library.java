@@ -3,19 +3,18 @@
  */
 package InsertionSort;
 
-import java.sql.Array;
 import java.util.Arrays;
 
 public class Library {
     public static void main(String[] args) {
 
-//        int [] arr={8,4,23,42,16,15};
+        int [] arr={8,4,23,42,16,15};
 //        InsertionSort(arr);
 //
 //            System.out.println(Arrays.toString(arr));
 //
-
-
+        MergeSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
    public  void InsertionSort(int arr[]) {
 
@@ -30,8 +29,59 @@ public class Library {
         }
 
     }
+public static void MergeSort(int[] arr){
+    int n=arr.length;
+        if (n<2){
+    return;
+}
+
+    if (n>1){
+        int []left = new int[n/2];
+        for (int i = 0; i < n/2; i++) {
+             left[i]=arr[i];
+        }
+        int []right = new int[n-(n/2)];
+        for (int i = n/2; i < n; i++) {
+            right[i-(n/2)]=arr[i];
+        }
+        MergeSort(left);
+        MergeSort(right);
+        Merge(left, right, arr);
+
+    }
+
+}
+public static void Merge(int[] arr1, int[] arr2, int[] arr3){
+
+int j=0,i=0,k=0;
+while (i<arr1.length&&j<arr2.length){
+if (arr1[i]<= arr2[j]){
+ arr3[k++]=arr1[i++];
 
 
+}else {
+
+    arr3[k++]=arr2[j++];
+
+
+}
+
+
+}
+while (i< arr1.length){
+
+    arr3[k++]=arr1[i++];
+
+}
+while (j<arr2.length){
+    arr3[k++]=arr2[j++];
+
+
+}
+
+
+
+}
 
 
 }

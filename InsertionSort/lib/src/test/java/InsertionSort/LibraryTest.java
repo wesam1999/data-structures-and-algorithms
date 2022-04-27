@@ -20,4 +20,14 @@ class LibraryTest {
 assertArrayEquals(result,arr);
 
 }
+    @Test void testMergaSort(){
+        Library library=new Library();
+        int [] arr={8,4,23,42,16,15};
+
+        library.MergeSort(arr);
+
+        int[] result={4, 8, 15, 16, 23, 42};
+        assertArrayEquals(result,arr);
+
+    }
 }
