@@ -8,15 +8,22 @@ import java.util.Arrays;
 public class Library {
     public static void main(String[] args) {
 
-        int [] arr={8,4,23,42,16,15};
+        int[] arr = {8, 4, 23, 42, 16, 15};
 //        InsertionSort(arr);
 //
 //            System.out.println(Arrays.toString(arr));
+//        int end = arr.length;
+//int left= 0;
+//int right =end-1;
 //
-        MergeSort(arr);
-        System.out.println(Arrays.toString(arr));
+//
+//            QuickSort(arr,left,right);
+//
+//
+//        System.out.println(Arrays.toString(arr));
     }
-   public  void InsertionSort(int arr[]) {
+
+    public void InsertionSort(int arr[]) {
 
         for (int i = 1; i < arr.length; ++i) {
             int temp = arr[i];
@@ -29,57 +36,88 @@ public class Library {
         }
 
     }
-public static void MergeSort(int[] arr){
-    int n=arr.length;
-        if (n<2){
-    return;
-}
 
-    if (n>1){
-        int []left = new int[n/2];
-        for (int i = 0; i < n/2; i++) {
-             left[i]=arr[i];
+    public static void MergeSort(int[] arr) {
+        int n = arr.length;
+        if (n < 2) {
+            return;
         }
-        int []right = new int[n-(n/2)];
-        for (int i = n/2; i < n; i++) {
-            right[i-(n/2)]=arr[i];
+
+        if (n > 1) {
+            int[] left = new int[n / 2];
+            for (int i = 0; i < n / 2; i++) {
+                left[i] = arr[i];
+            }
+            int[] right = new int[n - (n / 2)];
+            for (int i = n / 2; i < n; i++) {
+                right[i - (n / 2)] = arr[i];
+            }
+            MergeSort(left);
+            MergeSort(right);
+            Merge(left, right, arr);
+
         }
-        MergeSort(left);
-        MergeSort(right);
-        Merge(left, right, arr);
 
     }
 
+    public static void Merge(int[] arr1, int[] arr2, int[] arr3) {
+
+        int j = 0, i = 0, k = 0;
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] <= arr2[j]) {
+                arr3[k++] = arr1[i++];
+
+
+            } else {
+
+                arr3[k++] = arr2[j++];
+
+
+            }
+
+
+        }
+        while (i < arr1.length) {
+
+            arr3[k++] = arr1[i++];
+
+        }
+        while (j < arr2.length) {
+            arr3[k++] = arr2[j++];
+
+
+        }
+
+
+    }
+public  void QuickSort(int arr[],int left, int right){
+        if (left<right){
+            int position = partition(arr,left,right);
+            QuickSort(arr, left, position-1);
+            QuickSort(arr, position+1, right);
+        }
+
 }
-public static void Merge(int[] arr1, int[] arr2, int[] arr3){
+public  int partition(int arr[],int left,int right){
+        int pivot = arr[right];
+        int low = left-1;
+    for (int i = left; i <= right-1; i++) {
+        if (arr[i]<pivot){
+            low++;
+            swap(arr , low , i);
 
-int j=0,i=0,k=0;
-while (i<arr1.length&&j<arr2.length){
-if (arr1[i]<= arr2[j]){
- arr3[k++]=arr1[i++];
+        }
 
-
-}else {
-
-    arr3[k++]=arr2[j++];
-
-
-}
-
+    }
+    swap(arr , low+1 , right);
+    return (low+1);
 
 }
-while (i< arr1.length){
-
-    arr3[k++]=arr1[i++];
-
-}
-while (j<arr2.length){
-    arr3[k++]=arr2[j++];
-
-
-}
-
-
+public  void swap(int arr[],int i, int low){
+        int temp;
+        temp=arr[i];
+        arr[i]=arr[low];
+        arr[low]=temp;
 
 }
 

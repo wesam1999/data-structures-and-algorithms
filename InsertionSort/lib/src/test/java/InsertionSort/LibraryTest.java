@@ -30,4 +30,15 @@ assertArrayEquals(result,arr);
         assertArrayEquals(result,arr);
 
     }
+    @Test void testQuickSort(){
+        Library library=new Library();
+        int [] arr={8,4,23,42,16,15};
+int end=arr.length-1;
+        library.QuickSort(arr,0,end);
+
+        int[] result={4, 8, 15, 16, 23, 42};
+        assertArrayEquals(result,arr);
+
+    }
+
 }
