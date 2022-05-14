@@ -6,10 +6,8 @@ public class HashNode<K,V> {
     private int hashCode;
     private HashNode<K,V> next;
 
-    public HashNode(K key, V value, int hashCode) {
-        this.key = key;
-        this.value = value;
-        this.hashCode = hashCode;
+    public HashNode() {
+
     }
 
     public K getKey() {

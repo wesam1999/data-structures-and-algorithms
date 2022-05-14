@@ -3,9 +3,78 @@
  */
 package hashtable;
 
+import hashtable.structor.HashMap;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
+    @Test
+    void Testcontains() {
+        System.out.println("this is test for contains");
+        HashMap<String ,String> hashMap=new HashMap<>();
+        hashMap.put("firstOne","ali");
+        hashMap.put("secondOne","wesam");
+        hashMap.put("ThirdOne","kahed");
+        hashMap.put("lastOne","fared");
+        System.out.println(hashMap.contains("any"));
+        assertEquals(hashMap.contains("firstOne"),true);
+    }
+    @Test
+    void Testput() {
 
+        HashMap<String ,String> hashMap=new HashMap<>();
+        hashMap.put("firstOne","ali");
+        hashMap.put("secondOne","wesam");
+        hashMap.put("ThirdOne","kahed");
+        hashMap.put("lastOne","fared");
+
+        ArrayList <String> arrayResult=new ArrayList<>();
+        arrayResult.add("lastOne");
+        arrayResult.add("secondOne");
+        arrayResult.add("firstOne");
+        arrayResult.add("ThirdOne");
+        assertEquals(hashMap.keys(), arrayResult);
+    }
+
+    @Test
+    void testGet_returnNumber() {
+
+
+        HashMap<String ,String> hashMap=new HashMap<>();
+        hashMap.put("firstOne","ali");
+        hashMap.put("secondOne","wesam");
+        hashMap.put("ThirdOne","kahed");
+        hashMap.put("lastOne","fared");
+        System.out.println(hashMap.get("ThirdOne"));
+        assertEquals(hashMap.get("ThirdOne"),"kahed");
+    }
+    @Test
+    void testGet_returnnull() {
+
+
+        HashMap<String ,String> hashMap=new HashMap<>();
+        hashMap.put("firstOne","ali");
+        hashMap.put("secondOne","wesam");
+        hashMap.put("ThirdOne","kahed");
+        hashMap.put("lastOne","fared");
+        System.out.println(hashMap.get("ThirdOne"));
+        assertEquals(hashMap.get("any"),null);
+    }
+    @Test
+    void testhashmap_repeated_word() {
+
+
+        HashMap<String ,String> hashMap=new HashMap<>();
+
+        String s = "Ravi had been saying that he had been there";
+        String firstWord = hashMap.hashmap_repeated_word(s);
+        if (!firstWord.equals("NoRepetition"))
+            System.out.println("First repeated word :: " + firstWord);
+        else
+            System.out.println("No Repetitionn");
+        assertEquals(firstWord,"had");
+    }
 }
