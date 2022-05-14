@@ -3,11 +3,11 @@ package hashtable.structor;
 import hashtable.Data.HashNode;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
-public class HashMap<K,V> {
-    ArrayList<HashNode<K,V>> buckets;
-  private int size;
+
+public class HashMap<K, V> {
+    ArrayList<HashNode<K, V>> buckets;
+    private int size;
     private int bucket;
 
     public int getSize() {
@@ -15,7 +15,7 @@ public class HashMap<K,V> {
     }
 
     public HashMap() {
-        buckets=new ArrayList<>();
+        buckets = new ArrayList<>();
         bucket = 10;
         for (int i = 0; i < bucket; i++) {
             buckets.add(null);
@@ -23,24 +23,37 @@ public class HashMap<K,V> {
 
 
     }
-    private final int hashCode (K key) {
-        return Objects.hashCode(key);
+
+    private int hashCode(Object key) {
+
+        return (Math.abs(key.hashCode())) % buckets.size();
     }
-    private int getBucketIndex(K key){
-        int hashCode = hashCode(key);
-        int index = hashCode % bucket;
-        index = index < 0 ? index * -1 : index;
-        return index;
+
+    public ArrayList<K> keys() {
+        ArrayList<K> arrayKeys = new ArrayList<>();
+
+        for (int i = 0; i < buckets.size(); i++) {
+
+            HashNode list = buckets.get(i);
+
+            if (list != null) {
+
+                    System.out.println(list.getKey());
+                    arrayKeys.add((K) list.getKey());
+                    if (list.getNext() !=null){
+                      arrayKeys.add((K) list.getNext().getKey());
+                    }
+
+                }
+
+
+        }
+        return arrayKeys;
     }
-    private ArrayList<K> keys(){
-ArrayList<K> arrayKeys=new ArrayList<>();
-HashNode list=buckets.get(bucket);
-arrayKeys.add((K) list.getKey());
-return  arrayKeys ;
-    }
+
     public boolean contains(K key) {
 
-        int bucket =hashCode(key);
+        int bucket = hashCode(key);
         HashNode list = buckets.get(bucket);
         while (list != null) {
 
@@ -51,10 +64,11 @@ return  arrayKeys ;
 
         return false;
     }
-    public Object get(K key) {
+
+    public V get(K key) {
 
         int bucket = hashCode(key);
-        HashNode<K,V> list = buckets.get(bucket);
+        HashNode<K, V> list = buckets.get(bucket);
         while (list != null) {
 
             if (list.getKey().equals(key))
@@ -64,41 +78,84 @@ return  arrayKeys ;
 
         return null;
     }
+
     public void put(K key, V value) {
 
-        int index = getBucketIndex(key);
-        int hashcode = hashCode(key);
+        int bucket = hashCode(key);
+        HashNode list = buckets.get(bucket);
 
-        HashNode<K, V> head = buckets.get(index);
+        while (list != null) {
 
-        HashNode<K, V> newNode = new HashNode<>(key, value, hashcode);
+            if (list.getKey().equals(key))
+                break;
+            list = list.getNext();
+        }
 
+        if (list != null) {
 
-        if (head == null) {
-            buckets.set(index, newNode);
-            size++;
+            list.setValue(value);
         } else {
 
-            newNode.setNext(head.getNext());
-            head.setNext(newNode);
+            if (size >= 0.75 * buckets.size()) {
+
+                resize();
+            }
+            HashNode newNode = new HashNode();
+            newNode.setKey(key);
+            newNode.setValue(value);
+            newNode.setNext(buckets.get(bucket));
+            buckets.set(bucket, newNode);
             size++;
         }
+    }
 
-        if ((1.0 * size) / bucket >= 0.7) {
-            ArrayList<HashNode<K, V> > temp = buckets;
-            buckets = new ArrayList<>();
-            bucket = 2 * bucket;
-            size = 0;
-            for (int i = 0; i < bucket; i++)
-                buckets.add(null);
+    private void resize() {
 
-            for (HashNode<K, V> headNode : temp) {
-                while (headNode != null) {
-                    put(headNode.getKey(), headNode.getValue());
-                    headNode = headNode.getNext();
-                }
+        ArrayList<HashNode<K, V>> newtable = new ArrayList<>();
+        for (int i = 0; i < buckets.size(); i++) {
+
+            HashNode list = buckets.get(i);
+            while (list != null) {
+
+                HashNode next = list.getNext();
+
+                int hash = (Math.abs(list.getKey().hashCode())) % newtable.size();
+
+                list.setNext(newtable.get(hash));
+                newtable.set(hash, list);
+                list = next;
             }
         }
+        buckets = newtable;
+    }
+    public String hashmap_repeated_word(String s)
+    {
+
+
+        String token[] = s.split(" ");
+
+
+        HashMap<String, Integer> setOfWords = new HashMap<String, Integer>();
+
+
+
+        for (int i=0; i<token.length; i++) {
+            if (setOfWords.contains(token[i]))
+                setOfWords.put(token[i], setOfWords.get(token[i]) + 1); // word exists
+            else
+
+                setOfWords.put(token[i], 1);
+        }
+
+
+        for (int i=0; i<token.length; i++) {
+            int count = setOfWords.get(token[i]);
+            if (count > 1) {
+                return token[i];
+            }
+        }
+
+        return "NoRepetition";
     }
 
 }

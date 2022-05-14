@@ -12,11 +12,21 @@ public class App {
 
         System.out.println("hallo this is hash table ");
         HashMap<String ,String> hashMap=new HashMap<>();
-        hashMap.put("ali","pass");
-        hashMap.put("wesam","false");
-        hashMap.put("kalid","false");
-        hashMap.put("ali","pass");
-        System.out.println(hashMap.get("wesam"));
+        hashMap.put("firstOne","ali");
+        hashMap.put("secondOne","wesam");
+        hashMap.put("ThirdOne","kahed");
+        hashMap.put("lastOne","fared");
+        System.out.println(hashMap.get("ThirdOne"));
 
+        System.out.println(hashMap.keys());
+
+        System.out.println(hashMap.contains("any"));
+
+        String s = "Once upon a time, there was a ";
+        String firstWord = hashMap.hashmap_repeated_word(s);
+        if (!firstWord.equals("NoRepetition"))
+            System.out.println("First repeated word :: " + firstWord);
+        else
+            System.out.println("No Repetitionn");
     }
 }
