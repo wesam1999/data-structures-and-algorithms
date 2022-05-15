@@ -141,7 +141,7 @@ public class HashMap<K, V> {
 
         for (int i=0; i<token.length; i++) {
             if (setOfWords.contains(token[i]))
-                setOfWords.put(token[i], setOfWords.get(token[i]) + 1); // word exists
+                setOfWords.put(token[i], setOfWords.get(token[i]) + 1);
             else
 
                 setOfWords.put(token[i], 1);
