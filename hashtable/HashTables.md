@@ -21,11 +21,11 @@ Returns: Index in the collection for that key<br />
 ## Approach & Efficiency
 set<br />
 o(n)for space<br /> 
-O(1)for time<br />
+O(n)for time<br />
 
 get<br />
-o(n)for space<br />
-O(n)for time<br />
+o(1)for space<br />
+O(1)for time<br />
 
 contains<br />
 o(n)for space and time<br />
