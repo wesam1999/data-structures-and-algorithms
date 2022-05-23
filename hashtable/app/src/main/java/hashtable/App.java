@@ -5,6 +5,10 @@ package hashtable;
 
 import hashtable.structor.HashMap;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
+
 public class App {
 
 
@@ -29,4 +33,68 @@ public class App {
         else
             System.out.println("No Repetitionn");
     }
+    public  ArrayList hashmap_left_join(HashMap hashMap1,HashMap hashMap2){
+       ArrayList<ArrayList<String>> result= new ArrayList();
+       ArrayList<String> any=new ArrayList<>();
+        for (Object key:
+             hashMap1.keys()) {
+            if(hashMap2.contains(key)){
+
+                any.add((String) key);
+                any.add(hashMap1.get(key).toString());
+                any.add(hashMap2.get(key).toString());
+
+
+            }else {
+
+
+                any.add((String) key);
+                any.add(hashMap1.get(key).toString());
+                any.add(null);
+
+
+
+
+            }
+
+            result.add(any);
+            any=new ArrayList<>();
+
+        }
+
+
+        return result;
+    }
+    public static String Most_common_word(String word){
+        String[] parts = word.split(" ");
+        HashSet<String> temp = new HashSet<>();
+        int n = parts.length;
+        int count = 0;
+
+        for(int i = 0; i < n-1; i++) {
+            String currentWord = parts[i];
+            for(int j = i+1; j<n; j++) {
+                String nextWord = parts[j];
+                if(currentWord.contains(nextWord)) {
+                    temp.add(nextWord);
+                    count++;
+                }
+                if(nextWord.contains(currentWord)) {
+                    temp.add(currentWord);
+                    count++;
+                }
+
+            }
+
+        }
+        System.out.println(count);
+return parts[count];
+        
+    }
+
+
+
+
+
+
 }

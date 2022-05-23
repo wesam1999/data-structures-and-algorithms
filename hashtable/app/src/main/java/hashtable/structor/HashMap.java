@@ -40,10 +40,11 @@ public class HashMap<K, V> {
 
                     System.out.println(list.getKey());
                     arrayKeys.add((K) list.getKey());
-                    if (list.getNext() !=null){
-                      arrayKeys.add((K) list.getNext().getKey());
+                    if (list.getNext() !=null) {
+                        for (int j = 0; j <buckets.size() ; j++) {
+                            arrayKeys.add((K) list.getNext().getKey());
+                        }
                     }
-
                 }
 
 
