@@ -63,6 +63,8 @@ class AppTest {
         System.out.println(hashMap.get("ThirdOne"));
         assertEquals(hashMap.get("any"),null);
     }
+
+
     @Test
     void testhashmap_repeated_word() {
 
@@ -77,4 +79,48 @@ class AppTest {
             System.out.println("No Repetitionn");
         assertEquals(firstWord,"had");
     }
+    @Test
+    void hashmap_left_join_test() {
+App app=new App();
+
+        HashMap<String ,String> hashMap=new HashMap<>();
+        hashMap.put("firstOne","ali");
+        hashMap.put("secondOne","wesam");
+        hashMap.put("ThirdOne","kahed");
+        hashMap.put("lastOne","fared");
+        HashMap<String ,String> hashMap2=new HashMap<>();
+        hashMap.put("firstOne","ali");
+        hashMap.put("secondOne","wesam");
+        hashMap.put("ThirdOne","kahed");
+        hashMap.put("lastOne","fared");
+        System.out.println(app.hashmap_left_join(hashMap,hashMap2));
+       ArrayList<String> result=new ArrayList<>();
+       result.add("{");
+        result.add("lastOne");
+        result.add("fared");
+        result.add("null");
+        result.add("}");
+        result.add("{");
+        result.add("secondOne");
+        result.add("wesam");
+        result.add("null");
+        result.add("}");
+        result.add("{");
+        result.add("firstOne");
+        result.add("ali");
+        result.add("null");
+        result.add("}");
+        result.add("{");
+        result.add("{");
+        result.add("{");
+        result.add("{");
+        result.add("{");
+        result.add("{");
+        result.add("{");
+        result.add("{");
+       System.out.println(hashMap.get("ThirdOne"));
+        assertEquals(app.hashmap_left_join(hashMap,hashMap2),result);
+    }
+
+
 }
