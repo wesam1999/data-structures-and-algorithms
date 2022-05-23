@@ -83,43 +83,21 @@ class AppTest {
     void hashmap_left_join_test() {
 App app=new App();
 
-        HashMap<String ,String> hashMap=new HashMap<>();
+        java.util.HashMap<String ,String> hashMap=new java.util.HashMap<>();
         hashMap.put("firstOne","ali");
         hashMap.put("secondOne","wesam");
         hashMap.put("ThirdOne","kahed");
         hashMap.put("lastOne","fared");
-        HashMap<String ,String> hashMap2=new HashMap<>();
+        java.util.HashMap<String ,String> hashMap2=new java.util.HashMap<>();
         hashMap.put("firstOne","ali");
         hashMap.put("secondOne","wesam");
         hashMap.put("ThirdOne","kahed");
         hashMap.put("lastOne","fared");
-        System.out.println(app.hashmap_left_join(hashMap,hashMap2));
-       ArrayList<String> result=new ArrayList<>();
-       result.add("{");
-        result.add("lastOne");
-        result.add("fared");
-        result.add("null");
-        result.add("}");
-        result.add("{");
-        result.add("secondOne");
-        result.add("wesam");
-        result.add("null");
-        result.add("}");
-        result.add("{");
-        result.add("firstOne");
-        result.add("ali");
-        result.add("null");
-        result.add("}");
-        result.add("{");
-        result.add("{");
-        result.add("{");
-        result.add("{");
-        result.add("{");
-        result.add("{");
-        result.add("{");
-        result.add("{");
+
+
+       String result="[[lastOne, fared, null], [ThirdOne, kahed, null], [secondOne, wesam, null], [firstOne, ali, null]]";
        System.out.println(hashMap.get("ThirdOne"));
-        assertEquals(app.hashmap_left_join(hashMap,hashMap2),result);
+        assertEquals(app.hashmap_left_join(hashMap,hashMap2).toString(),result);
     }
 
 

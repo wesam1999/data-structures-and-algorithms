@@ -3,9 +3,8 @@
  */
 package hashtable;
 
-import hashtable.structor.HashMap;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 
@@ -14,31 +13,13 @@ public class App {
 
     public static void main(String[] args) {
 
-        System.out.println("hallo this is hash table ");
-        HashMap<String ,String> hashMap=new HashMap<>();
-        hashMap.put("firstOne","ali");
-        hashMap.put("secondOne","wesam");
-        hashMap.put("ThirdOne","kahed");
-        hashMap.put("lastOne","fared");
-        System.out.println(hashMap.get("ThirdOne"));
-
-        System.out.println(hashMap.keys());
-
-        System.out.println(hashMap.contains("any"));
-
-        String s = "Once upon a time, there was a ";
-        String firstWord = hashMap.hashmap_repeated_word(s);
-        if (!firstWord.equals("NoRepetition"))
-            System.out.println("First repeated word :: " + firstWord);
-        else
-            System.out.println("No Repetitionn");
     }
-    public  ArrayList hashmap_left_join(HashMap hashMap1,HashMap hashMap2){
+    public  ArrayList<ArrayList<String>> hashmap_left_join(java.util.HashMap hashMap1, HashMap hashMap2){
        ArrayList<ArrayList<String>> result= new ArrayList();
        ArrayList<String> any=new ArrayList<>();
         for (Object key:
-             hashMap1.keys()) {
-            if(hashMap2.contains(key)){
+             hashMap1.keySet()) {
+            if(hashMap2.containsKey(key)){
 
                 any.add((String) key);
                 any.add(hashMap1.get(key).toString());
