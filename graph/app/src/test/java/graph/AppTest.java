@@ -106,7 +106,25 @@ class AppTest {
         assertEquals(graph.size(),result);
 
     }
+    @Test void Test4() {
 
+
+        Graph graph=new Graph();
+
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+
+        graph.addEdges("A","B");
+        graph.addEdges("B","C");
+        graph.addEdges("A","C");
+
+        System.out.println(graph.printGraph());
+
+        String result="[A, B, C]";
+        assertEquals(graph.bfs(graph,"A").toString(),result);
+
+    }
 
 
 

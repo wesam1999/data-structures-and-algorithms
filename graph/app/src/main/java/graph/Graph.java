@@ -6,6 +6,7 @@ public class Graph {
 
     private Map<Vertex,List<Vertex>> adjVertices;
 
+
     public Graph() {
         this.adjVertices = new HashMap<>();
     }
@@ -21,6 +22,16 @@ public class Graph {
 
         adjVertices.get(vertex1).add(vertex2);
         adjVertices.get(vertex2).add(vertex1);
+    }
+    public void addEdge(String data1, String data2, int weight) {
+        Vertex wVertex1 = new Vertex(data1, weight);
+        Vertex wVertex2 = new Vertex(data2, weight);
+
+        Vertex vertex1 = new Vertex(data1, weight);
+        Vertex vertex2 = new Vertex(data2, weight);
+
+        adjVertices.get(vertex1).add(wVertex2);
+        adjVertices.get(vertex2).add(wVertex1);
     }
 
     String printGraph() {
@@ -73,5 +84,45 @@ return number;
 public int size(){
   return adjVertices.size();
 }
+
+
+
+
+    public Set<String> bfs(Graph graph,String root){
+        Set<String> visited = new LinkedHashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        queue.add(root);
+        visited.add(root);
+        while (!queue.isEmpty()){
+            String vertex = queue.poll();
+            for(Vertex v : graph.getAdjVertices(vertex)){
+                if(!visited.contains((v.data)))
+                {
+                    queue.add(v.data);
+                    visited.add(v.data);
+
+                }
+            }
+        }
+        return visited;
+    }
+    public List<Vertex> getAdjVertices(String data){
+        return adjVertices.get(new Vertex(data));
+    }
+    public void graph_business_trip(Graph graph,String []city){
+
+int total=0;
+
+
+        Set<String> visited = new LinkedHashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        for (){
+
+
+
+        }
+
+
+    }
 
 }
