@@ -116,7 +116,8 @@ int total=0;
 
         Set<String> visited = new LinkedHashSet<>();
         Queue<String> queue = new LinkedList<>();
-        for (){
+        for (int i = 0; i < adjVertices.size(); i++) {
+
 
 
 
@@ -124,5 +125,51 @@ int total=0;
 
 
     }
+//
+//    private static void DFS(Graph graph, Vertex v, boolean[] visited)
+//    {
+//        // mark current node as visited
+//        visited[v] = true;
+//
+//        // do for every edge (v, u)
+//        for (Vertex u: graph.adjVertices.get(v))
+//        {
+//            // `u` is not visited
+//            if (!visited[u]) {
+//                DFS(graph, u, visited);
+//            }
+//        }
+//    }
+//    public boolean isConnectedsdsad(Graph graph, String start, String end)
+//    {
+//        List<String> visited = new ArrayList<>();
+//        List<String> inprocess = new ArrayList<>();
+//        inprocess.add(start);
+//
+//        while(inprocess.size() > 0)
+//        {
+//            String cur = inprocess.get(0);
+//            inprocess.remove(0);
+//            if(cur == end)
+//                return true;
+//            if(visited.contains(cur))
+//                continue;
+//            visited.add(cur);
+//            for(int i = 0; i < graph.adjVertices.size(); i++)
+//                if(graph.adjVertices.get(i).contains(cur) && !visited.contains(graph.adjVertices.get(i)) && !inprocess.contains(graph.adjVertices.get(i)))
+//            inprocess.add(graph.adjVertices.get(i).toString());
+//        }
+//        return false;
+//    }
+    public boolean isConnected(Graph graph, String node1, String node2)
+    {
+        List<Vertex> adjacent =  graph.adjVertices.get(node1);
+        if (adjacent == null)
+        {
+            return false;
+        }
+        return adjacent.contains(node2) &&adjacent.contains(node1);
+    }
+
 
 }
