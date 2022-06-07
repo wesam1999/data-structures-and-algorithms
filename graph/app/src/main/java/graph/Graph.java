@@ -125,21 +125,39 @@ int total=0;
 
 
     }
-//
-//    private static void DFS(Graph graph, Vertex v, boolean[] visited)
+//    void DFSUtil(int v, boolean visited[])
 //    {
-//        // mark current node as visited
+//        // Mark the current node as visited and print it
 //        visited[v] = true;
+//        System.out.print(v + " ");
 //
-//        // do for every edge (v, u)
-//        for (Vertex u: graph.adjVertices.get(v))
-//        {
-//            // `u` is not visited
-//            if (!visited[u]) {
-//                DFS(graph, u, visited);
-//            }
+//        // Recur for all the vertices adjacent to this
+//        // vertex
+//        Iterator<Integer> i = adj[v].listIterator();
+//        while (i.hasNext()) {
+//            int n = i.next();
+//            if (!visited[n])
+//                DFSUtil(n, visited);
 //        }
 //    }
+//
+//    // The function to do DFS traversal.
+//    // It uses recursive
+//    // DFSUtil()
+//    void DFS(int v)
+//    {
+//        // Mark all the vertices as
+//        // not visited(set as
+//        // false by default in java)
+//        boolean visited[] = new boolean[V];
+//
+//        // Call the recursive helper
+//        // function to print DFS
+//        // traversal
+//        DFSUtil(v, visited);
+//    }
+
+
 //    public boolean isConnectedsdsad(Graph graph, String start, String end)
 //    {
 //        List<String> visited = new ArrayList<>();
@@ -168,7 +186,7 @@ int total=0;
         {
             return false;
         }
-        return adjacent.contains(node2) &&adjacent.contains(node1);
+        return adjacent.contains(node2) ;
     }
 
 
