@@ -125,7 +125,20 @@ class AppTest {
         assertEquals(graph.bfs(graph,"A").toString(),result);
 
     }
+    @Test void Test5() {
+
+
+        Graph graph=new Graph();
+App app=new App();
+
+        String str1 = "geeksforgeeks";
+        String str2 = "forgeeksgeeks";
+
+
+        assertTrue(app.isAnagram(str1, str2));
+    }
+
+    }
 
 
 
-}

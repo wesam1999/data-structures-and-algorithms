@@ -3,6 +3,9 @@
  */
 package graph;
 
+import java.util.HashMap;
+import java.util.Set;
+
 public class App {
 
 
@@ -27,4 +30,49 @@ Vertex vertex=new Vertex("A");
         System.out.println( graph.get_neighbors(vertex));
 
     }
+    public static boolean isAnagram(String String1, String String2)
+    {
+        if (String1.length() != String2.length()) {
+            return false;
+        }
+
+        HashMap<Character, Integer> hashmap = new HashMap<>();
+
+        for (int i = 0; i < String1.length(); i++) {
+
+            if (hashmap.containsKey(String1.charAt(i))) {
+
+                hashmap.put(String1.charAt(i),
+                        hashmap.get(String1.charAt(i)) + 1);
+            }
+            else {
+
+                hashmap.put(String1.charAt(i), 1);
+            }
+        }
+
+        for (int i = 0; i < String2.length(); i++) {
+
+            if (hashmap.containsKey(String2.charAt(i))) {
+
+                hashmap.put(String2.charAt(i),
+                        hashmap.get(String2.charAt(i)) - 1);
+            }
+        }
+
+        Set<Character> keys = hashmap.keySet();
+
+        for (Character key : keys) {
+            if (hashmap.get(key) != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+
+
+
 }
