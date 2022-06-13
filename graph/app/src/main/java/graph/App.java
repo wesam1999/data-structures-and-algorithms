@@ -3,6 +3,8 @@
  */
 package graph;
 
+import roman_number_Transfare.RomanNumeral;
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -11,27 +13,60 @@ public class App {
 
     public static void main(String[] args) {
 
-        System.out.println("this is graphs");
+//        System.out.println("this is graphs");
+////
+////        Graph graph=new Graph();
+////
+////        graph.addVertex("A");
+////        graph.addVertex("B");
+////        graph.addVertex("C");
+////
+////        graph.addEdges("A","B");
+////        graph.addEdges("B","C");
+////        graph.addEdges("A","C");
+////
+////        System.out.println(graph.printGraph());
+////
+////Vertex vertex=new Vertex("A");
+////        System.out.println(graph.get_nodes());
+////        System.out.println( graph.get_neighbors(vertex));
+//
+//        String str = "Techie Delight";
+//
+//        System.out.println("The reverse of the given string is: " + reverse(str));
 
-        Graph graph=new Graph();
 
-        graph.addVertex("A");
-        graph.addVertex("B");
-        graph.addVertex("C");
 
-        graph.addEdges("A","B");
-        graph.addEdges("B","C");
-        graph.addEdges("A","C");
 
-        System.out.println(graph.printGraph());
 
-Vertex vertex=new Vertex("A");
-        System.out.println(graph.get_nodes());
-        System.out.println( graph.get_neighbors(vertex));
+
+
+
+
+
+        int roman = 634;
+        try {
+            RomanNumeral N = new RomanNumeral(roman);
+            System.out.println(N.toInt()+ " = " +N.toString() );
+
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Invalid input.");
+            System.out.println(e.getMessage());
+        }
+
+
+
+
+
+
+
+
+
 
     }
-    public static boolean isAnagram(String String1, String String2)
-    {
+
+    public static boolean isAnagram(String String1, String String2) {
         if (String1.length() != String2.length()) {
             return false;
         }
@@ -44,8 +79,7 @@ Vertex vertex=new Vertex("A");
 
                 hashmap.put(String1.charAt(i),
                         hashmap.get(String1.charAt(i)) + 1);
-            }
-            else {
+            } else {
 
                 hashmap.put(String1.charAt(i), 1);
             }
@@ -71,8 +105,40 @@ Vertex vertex=new Vertex("A");
         return true;
     }
 
+    public StringBuilder reverseString(String input) {
+        StringBuilder input1 = new StringBuilder();
+        input1.append(input);
+        input1.reverse();
+
+        return input1;
+
+    }
 
 
+// the third way
+
+    private static void reverse(char[] A, int l, int h) {
+        if (l < h) {
+            char ch = A[l];
+            A[l] = A[h];
+            A[h] = ch;
+
+            reverse(A, l + 1, h - 1);
+        }
+    }
 
 
+    public static String reverse(String str) {
+
+        if (str == null || str.equals("")) {
+            return str;
+        }
+
+        char[] A = str.toCharArray();
+
+        reverse(A, 0, A.length - 1);
+
+        return String.copyValueOf(A);
+
+    }
 }

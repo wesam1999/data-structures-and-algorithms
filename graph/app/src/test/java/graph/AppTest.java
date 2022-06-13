@@ -4,6 +4,8 @@
 package graph;
 
 import org.junit.jupiter.api.Test;
+import roman_number_Transfare.RomanNumeral;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
@@ -137,6 +139,36 @@ App app=new App();
 
         assertTrue(app.isAnagram(str1, str2));
     }
+    @Test void Test6() {
+
+
+        Graph graph=new Graph();
+        App app=new App();
+
+
+        String str2 = "A ship in port is safe, but that's not what ships are built for.";
+        String result=".rof tliub era spihs tahw ton s'taht tub ,efas si trop ni pihs A";
+
+assertEquals(app.reverseString(str2).toString(),result);
+
+    }
+    @Test void Test7_forCodeChallenge43() {
+
+
+        int roman = 634;
+
+            RomanNumeral N = new RomanNumeral(roman);
+            System.out.println(N.toInt()+ " = " +N.toString() );
+
+
+
+
+        String result="DCXXXIV";
+        assertEquals(N.toString(),result);
+
+    }
+
+
 
     }
 
