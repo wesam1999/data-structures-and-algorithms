@@ -125,60 +125,8 @@ int total=0;
 
 
     }
-//    void DFSUtil(int v, boolean visited[])
-//    {
-//        // Mark the current node as visited and print it
-//        visited[v] = true;
-//        System.out.print(v + " ");
-//
-//        // Recur for all the vertices adjacent to this
-//        // vertex
-//        Iterator<Integer> i = adj[v].listIterator();
-//        while (i.hasNext()) {
-//            int n = i.next();
-//            if (!visited[n])
-//                DFSUtil(n, visited);
-//        }
-//    }
-//
-//    // The function to do DFS traversal.
-//    // It uses recursive
-//    // DFSUtil()
-//    void DFS(int v)
-//    {
-//        // Mark all the vertices as
-//        // not visited(set as
-//        // false by default in java)
-//        boolean visited[] = new boolean[V];
-//
-//        // Call the recursive helper
-//        // function to print DFS
-//        // traversal
-//        DFSUtil(v, visited);
-//    }
 
 
-//    public boolean isConnectedsdsad(Graph graph, String start, String end)
-//    {
-//        List<String> visited = new ArrayList<>();
-//        List<String> inprocess = new ArrayList<>();
-//        inprocess.add(start);
-//
-//        while(inprocess.size() > 0)
-//        {
-//            String cur = inprocess.get(0);
-//            inprocess.remove(0);
-//            if(cur == end)
-//                return true;
-//            if(visited.contains(cur))
-//                continue;
-//            visited.add(cur);
-//            for(int i = 0; i < graph.adjVertices.size(); i++)
-//                if(graph.adjVertices.get(i).contains(cur) && !visited.contains(graph.adjVertices.get(i)) && !inprocess.contains(graph.adjVertices.get(i)))
-//            inprocess.add(graph.adjVertices.get(i).toString());
-//        }
-//        return false;
-//    }
     public boolean isConnected(Graph graph, String node1, String node2)
     {
         List<Vertex> adjacent =  graph.adjVertices.get(node1);
@@ -188,6 +136,33 @@ int total=0;
         }
         return adjacent.contains(node2) ;
     }
+    int result =0;
+    public int businessTrip(Graph graph, String[] citys) {
+        result = 0;
+        for (int i = 0; i < citys.length- 1; i++) {
+            for (Vertex vertex : graph.getAdjVertices(citys[i])) {
+                if (Objects.equals(citys[i+1], vertex.data)) {
+                    result += vertex.weight;
+                }
+            }
+        }
+        return result;
+    }
+  public   Set<String> Depth_first(Graph graph, String node) {
+        Set<String> visited = new LinkedHashSet<>();
+        Stack<String> stack = new Stack<>();
+        stack.push(node);
+        while (!stack.isEmpty()){
+            String vertex = stack.pop();
+            if (!visited.contains(vertex)) {
+                visited.add(vertex);
 
+                for (Vertex v : graph.getAdjVertices(vertex)) {
+                    stack.push(v.data);
+                }
+            }
 
-}
+        }
+        return visited;
+    }
+    }

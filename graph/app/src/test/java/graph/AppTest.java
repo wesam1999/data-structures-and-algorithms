@@ -4,6 +4,8 @@
 package graph;
 
 import org.junit.jupiter.api.Test;
+import roman_number_Transfare.RomanNumeral;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
@@ -136,6 +138,77 @@ App app=new App();
 
 
         assertTrue(app.isAnagram(str1, str2));
+    }
+    @Test void Test6() {
+
+
+        Graph graph=new Graph();
+        App app=new App();
+
+
+        String str2 = "A ship in port is safe, but that's not what ships are built for.";
+        String result=".rof tliub era spihs tahw ton s'taht tub ,efas si trop ni pihs A";
+
+assertEquals(app.reverseString(str2).toString(),result);
+
+    }
+    @Test void Test7_forCodeChallenge43() {
+
+
+        int roman = 634;
+
+            RomanNumeral N = new RomanNumeral(roman);
+            System.out.println(N.toInt()+ " = " +N.toString() );
+
+
+
+
+        String result="DCXXXIV";
+        assertEquals(N.toString(),result);
+
+    }
+
+
+    @Test void Test8_code_cahallenge_38() {
+
+
+        Graph graph=new Graph();
+
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+
+        graph.addEdges("A","B");
+        graph.addEdges("B","C");
+        graph.addEdges("A","C");
+
+        System.out.println(graph.printGraph());
+
+        String result="[A, C, B]";
+        assertEquals(graph.Depth_first(graph,"A").toString(),result);
+
+    }
+
+    @Test void Test8_code_cahallenge_37() {
+
+
+        Graph graph=new Graph();
+
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+
+        graph.addEdge("A","B",10);
+        graph.addEdge("B","C",30);
+        graph.addEdge("A","C",40);
+
+        String []city={"A","B"};
+
+        System.out.println(graph.printGraph());
+
+        int result=10;
+        assertEquals(graph.businessTrip(graph,city),result);
+
     }
 
     }
