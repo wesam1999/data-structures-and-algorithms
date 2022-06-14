@@ -169,6 +169,47 @@ assertEquals(app.reverseString(str2).toString(),result);
     }
 
 
+    @Test void Test8_code_cahallenge_38() {
+
+
+        Graph graph=new Graph();
+
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+
+        graph.addEdges("A","B");
+        graph.addEdges("B","C");
+        graph.addEdges("A","C");
+
+        System.out.println(graph.printGraph());
+
+        String result="[A, C, B]";
+        assertEquals(graph.Depth_first(graph,"A").toString(),result);
+
+    }
+
+    @Test void Test8_code_cahallenge_37() {
+
+
+        Graph graph=new Graph();
+
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+
+        graph.addEdge("A","B",10);
+        graph.addEdge("B","C",30);
+        graph.addEdge("A","C",40);
+
+        String []city={"A","B"};
+
+        System.out.println(graph.printGraph());
+
+        int result=10;
+        assertEquals(graph.businessTrip(graph,city),result);
+
+    }
 
     }
 
