@@ -210,6 +210,33 @@ assertEquals(app.reverseString(str2).toString(),result);
         assertEquals(graph.businessTrip(graph,city),result);
 
     }
+//    @Test void Test8_code_cahallenge_44() {
+//
+//
+//        int[][] array =  {
+//                {1, 1, 1 },
+//                { 2, 2, 2 },
+//                {3, 3, 3}
+//
+//        };
+//App app=new App();
+//        int[][] rotated = app.RotateMatrix(array, 3);
+//
+//
+//
+//        int[][] result =  {
+//                {3, 2, 1},
+//                { 3, 2, 1 },
+//                {3, 2, 1}
+//
+//        };
+//
+//
+//
+//
+//        asserte(app.RotateMatrix(array, 3),result);
+//
+//    }
 
     }
 

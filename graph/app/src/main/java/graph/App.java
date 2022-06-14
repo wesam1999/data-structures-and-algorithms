@@ -58,9 +58,21 @@ public class App {
 
 
 
+        int[][] array =  {
+                {1, 1, 1 },
+                { 2, 2, 2 },
+                {3, 3, 3}
 
+        };
 
+        int[][] rotated = RotateMatrix(array, 3);
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
 
+                System.out.printf("%5d",rotated[i][j]);
+            }
+            System.out.println();
+        }
 
 
 
@@ -141,4 +153,24 @@ public class App {
         return String.copyValueOf(A);
 
     }
+
+    public static int[][] RotateMatrix(int[][] matrix, int n) {
+        int[][] ret = new int[n] [n];
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ret[i] [j] = matrix[n - j - 1][ i];
+            }
+        }
+
+        return ret;
+    }
+
+
+
+
+
+
+
+
 }
