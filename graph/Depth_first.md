@@ -11,7 +11,7 @@ O(n)for space <br />
 O(1)for time<br />
 
 ## Solution
-[image](./image_Depth_first.png)
+![image](./image_Depth_first.png)
 
 ## Requirements
 Ensure your complete solution follows the standard requirements.
